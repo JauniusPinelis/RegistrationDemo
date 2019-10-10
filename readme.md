@@ -1,5 +1,5 @@
 ======================================
-Gilded Rose Requirements Specification
+Registration Demo
 ======================================
 
 A rather simple registration app with several requirements (in Lithuanian):
