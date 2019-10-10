@@ -140,7 +140,7 @@ namespace Registration.Infrastructure.Db
             modelBuilder.Entity<QuestionEntity>().HasData(new QuestionEntity()
             {
                 Id = 5,
-                Name = "Skaiciavimo budas"
+                Name = "Svarbus Klientas"
             });
 
             modelBuilder.Entity<DropdownEntity>().HasData(new DropdownEntity
