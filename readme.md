@@ -26,7 +26,8 @@ Technologies:
 
 ## Notes
 
-1. I realise that a single Razor (With minimal Jquery) + Asp.net MVC project would be a simplier and easier to run solution/
+1. I realise that a single Razor (With minimal Jquery) + Asp.net MVC project would be a simplier and easier to run solution. 
+This could feel "over-engeneered"
 However, I wanted this split this application into several parts/projects:
 - Registration.Core - The logic of the project (independent of Infrastructure/DB/API). Not much there, only models as the app is quite straightforward.
 - Registration.Api - Presentation layer
@@ -40,6 +41,7 @@ However, I wanted this split this application into several parts/projects:
 1. Add some testing at least to check RegistrationContext stores objects successfully.
 2. Front-end "clear data" functionality currently just reloads data and does uneccessary Api call.
 3. Curently it holds data for single registration entity - but it would be quite easy to extend the functionality for multiples registrations.
+4. Front-end - could have some kind of check if Back-end is running and display "no server found" if something is wrong.
 
 
 
