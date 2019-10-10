@@ -21,8 +21,8 @@ Requirements: Node.js (for npm and front-end React), Visual Studio with .net cor
 
 ## Notes
 Technologies:
-front-end: React, React-Bootstrap, Sass, Axios
-back-end: .net-core 2.2 WebApi with default libraries for mapper, dependency injection, entity framework and migrations.
+- Front-end: React, React-Bootstrap, Sass, Axios
+- Back-end: .net-core 2.2 WebApi with default libraries for mapper, dependency injection, entity framework and migrations.
 
 ## Notes
 
@@ -32,11 +32,14 @@ However, I wanted this split this application into several parts/projects:
 - Registration.Api - Presentation layer
 - Registration.Infrastructure - The code for mappings, EF, db and other infrastucture. This could be split into another project Persistence for just db stuff.
 - ClientApp consumes the Web Api
+- I prefer to separate Front-end and back-end as it create separation of concerns (as well as use different editors for each side)
 
 2. No Tests :( Lack of time.. I could use EF InmemoryProvider for testing.
 
 ## Things to improve
-
+1. Add some testing at least to check RegistrationContext stores objects successfully.
+2. Front-end "clear data" functionality currently just reloads data and does uneccessary Api call.
+3. Curently it holds data for single registration entity - but it would be quite easy to extend the functionality for multiples registrations.
 
 
 

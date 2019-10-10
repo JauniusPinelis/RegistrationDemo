@@ -10,8 +10,8 @@ using Registration.Infrastructure.Db;
 namespace Registration.Infrastructure.Migrations
 {
     [DbContext(typeof(RegistrationContext))]
-    [Migration("20191010062605_bug-fix")]
-    partial class bugfix
+    [Migration("20191010072445_seed-data")]
+    partial class seeddata
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
