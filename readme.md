@@ -12,12 +12,12 @@ Basically in short the whole metadata of registration structure (questions and d
 
 ## To run
 Requirements: Node.js (for npm and front-end React), Visual Studio with .net core 2.2 for back-end with mssql with local db instance.
-
+0. Run "git clone https://github.com/JauniusPinelis/RegistrationDemo.git" in cmd (or "git pull" to update).
 1. Open \Registration\Registration.sln with Visual studio.
 2. Modify Registration\Registration.Api -> DefaultConnectionString with your mssql instance.
 3. Run "update-database" in nuget console (Registration.Infrastructure). This create db with schema and seed-data.
 4. Run the Registration.Api project - you have now web api running. Keep it running.
-5. Open Console, change directory to "\ClientApp" and "npm install" in Console. This will install all the front-end required libraries.
+5. Open Console, change directory to "\ClientApp" and "npm install" in Console. This will install all the front-end required libraries.  
 6. In Console run "npm run start" . This runs React Web App which communicates with the Asp.net Core Web Api.
 
 ## Notes
