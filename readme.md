@@ -16,8 +16,9 @@ Requirements: Node.js (for npm and front-end React), Visual Studio with .net cor
 1. Open \Registration\Registration.sln with Visual studio.
 2. Modify Registration\Registration.Api -> DefaultConnectionString with your mssql instance.
 3. Run "update-database" in nuget console (Registration.Infrastructure). This create db with schema and seed-data.
-4. Run the Registration.Api project - you have now web api running.
-5. run "npm run start" in \ClientApp. This runs React Web App which communicates with the Asp.net Core Web Api.
+4. Run the Registration.Api project - you have now web api running. Keep it running.
+5. Open Console, change directory to "\ClientApp" and "npm install" in Console. This will install all the front-end required libraries.
+6. In Console run "npm run start" . This runs React Web App which communicates with the Asp.net Core Web Api.
 
 ## Notes
 Technologies:
