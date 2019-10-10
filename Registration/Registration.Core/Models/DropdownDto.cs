@@ -4,10 +4,10 @@ using System.Text;
 
 namespace Registration.Core.Models
 {
-    public class DropdownModel
+    public class DropdownDto
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public IEnumerable<DropdownFieldModel> SelectFields { get; set; }
+        public IEnumerable<DropdownFieldDto> SelectFields { get; set; }
     }
 }

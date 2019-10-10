@@ -20,19 +20,19 @@ namespace Registration.Infrastructure.Repositories
             _mapper = mapper;
         }
 
-        public IEnumerable<QuestionModel> GetQuestions()
+        public IEnumerable<QuestionDto> GetQuestions()
         {
             var questions = _context.Questions.Include(q => q.Dropdown).ThenInclude(d => d.SelectFields);
-            return _mapper.Map<List<QuestionModel>>(questions);
+            return _mapper.Map<List<QuestionDto>>(questions);
         }
 
-        public void SubmitAnswers(IEnumerable<QuestionModel> answers)
+        public void SubmitAnswers(IEnumerable<QuestionDto> answers)
         {
             answers.ToList().ForEach(prop => UpdateAnswer(prop));
             _context.SaveChanges();
         }
 
-        private void UpdateAnswer(QuestionModel question)
+        private void UpdateAnswer(QuestionDto question)
         {
             var entity = _context.Questions.SingleOrDefault(q => q.Id == question.Id);
             if (entity != null)

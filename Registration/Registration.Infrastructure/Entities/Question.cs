@@ -5,12 +5,12 @@ using System.Text;
 
 namespace Registration.Infrastructure.Entities
 {
-    [Table("tblMeta_Question")]
-    public class QuestionEntity
+    [Table("tblData_Question")]
+    public class Question
     {
         public int Id { get; set; }
         public string Name { get; set; }
         public int? Value { get; set; }
-        public DropdownEntity Dropdown { get; set; }
+        public Dropdown Dropdown { get; set; }
     }
 }

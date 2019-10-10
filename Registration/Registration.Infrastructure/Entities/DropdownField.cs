@@ -6,8 +6,8 @@ using System.Text;
 
 namespace Registration.Infrastructure.Entities
 {
-    [Table("tblMeta_RegistrationValue")]
-    public class DropdownFieldEntity
+    [Table("tblMeta_DropdownValue")]
+    public class DropdownField
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
@@ -17,7 +17,7 @@ namespace Registration.Infrastructure.Entities
         [ForeignKey("Dropdown")]
         public int DropdownId { get; set; }
 
-        public DropdownEntity Dropdown { get; set; }
+        public Dropdown Dropdown { get; set; }
         
     }
 }

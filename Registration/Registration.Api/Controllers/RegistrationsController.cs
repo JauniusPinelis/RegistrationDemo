@@ -20,14 +20,14 @@ namespace Registration.Api.Controllers
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<QuestionModel>> GetQuestions()
+        public ActionResult<IEnumerable<QuestionDto>> GetQuestions()
         {
             var output = _registrationRepository.GetQuestions();
             return Ok(output);
         }
 
         [HttpPost]
-        public ActionResult SubmitAnswers([FromBody] IEnumerable<QuestionModel> answers)
+        public ActionResult SubmitAnswers([FromBody] IEnumerable<QuestionDto> answers)
         {
             _registrationRepository.SubmitAnswers(answers);
             _registrationRepository.SaveChanges();

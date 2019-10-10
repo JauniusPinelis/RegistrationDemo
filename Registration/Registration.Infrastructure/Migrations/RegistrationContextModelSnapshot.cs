@@ -19,7 +19,7 @@ namespace Registration.Infrastructure.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Registration.Infrastructure.Entities.DropdownEntity", b =>
+            modelBuilder.Entity("Registration.Infrastructure.Entities.Dropdown", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -69,7 +69,7 @@ namespace Registration.Infrastructure.Migrations
                         });
                 });
 
-            modelBuilder.Entity("Registration.Infrastructure.Entities.DropdownFieldEntity", b =>
+            modelBuilder.Entity("Registration.Infrastructure.Entities.DropdownField", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -83,7 +83,7 @@ namespace Registration.Infrastructure.Migrations
 
                     b.HasIndex("DropdownId");
 
-                    b.ToTable("tblMeta_RegistrationValue");
+                    b.ToTable("tblMeta_DropdownValue");
 
                     b.HasData(
                         new
@@ -148,7 +148,7 @@ namespace Registration.Infrastructure.Migrations
                         });
                 });
 
-            modelBuilder.Entity("Registration.Infrastructure.Entities.QuestionEntity", b =>
+            modelBuilder.Entity("Registration.Infrastructure.Entities.Question", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -160,7 +160,7 @@ namespace Registration.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("tblMeta_Question");
+                    b.ToTable("tblData_Question");
 
                     b.HasData(
                         new
@@ -190,38 +190,17 @@ namespace Registration.Infrastructure.Migrations
                         });
                 });
 
-            modelBuilder.Entity("Registration.Infrastructure.Entities.RegistrationEntity", b =>
+            modelBuilder.Entity("Registration.Infrastructure.Entities.Dropdown", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("CalculationType");
-
-                    b.Property<bool>("IsBusinessClient");
-
-                    b.Property<bool>("IsImportantClient");
-
-                    b.Property<bool>("IsWorkNeeded");
-
-                    b.Property<int>("WorkAppliedBy");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("tblData_Registration");
-                });
-
-            modelBuilder.Entity("Registration.Infrastructure.Entities.DropdownEntity", b =>
-                {
-                    b.HasOne("Registration.Infrastructure.Entities.QuestionEntity", "Question")
+                    b.HasOne("Registration.Infrastructure.Entities.Question", "Question")
                         .WithOne("Dropdown")
-                        .HasForeignKey("Registration.Infrastructure.Entities.DropdownEntity", "QuestionId")
+                        .HasForeignKey("Registration.Infrastructure.Entities.Dropdown", "QuestionId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("Registration.Infrastructure.Entities.DropdownFieldEntity", b =>
+            modelBuilder.Entity("Registration.Infrastructure.Entities.DropdownField", b =>
                 {
-                    b.HasOne("Registration.Infrastructure.Entities.DropdownEntity", "Dropdown")
+                    b.HasOne("Registration.Infrastructure.Entities.Dropdown", "Dropdown")
                         .WithMany("SelectFields")
                         .HasForeignKey("DropdownId")
                         .OnDelete(DeleteBehavior.Cascade);

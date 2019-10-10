@@ -8,10 +8,9 @@ namespace Registration.Infrastructure
     {
         public MappingProfile()
         {
-            CreateMap<RegistrationEntity, RegistrationModel>();
-            CreateMap<DropdownFieldEntity, DropdownFieldModel>();
-            CreateMap<DropdownEntity, DropdownModel>();
-            CreateMap<QuestionEntity, QuestionModel>();
+            CreateMap<DropdownField, DropdownFieldDto>();
+            CreateMap<Dropdown, DropdownDto>();
+            CreateMap<Question, QuestionDto>();
         }
     }
 }

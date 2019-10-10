@@ -3,29 +3,12 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Registration.Infrastructure.Migrations
 {
-    public partial class seeddata : Migration
+    public partial class redesignseeddata : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "tblData_Registration",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    IsWorkNeeded = table.Column<bool>(nullable: false),
-                    WorkAppliedBy = table.Column<int>(nullable: false),
-                    IsBusinessClient = table.Column<bool>(nullable: false),
-                    CalculationType = table.Column<int>(nullable: false),
-                    IsImportantClient = table.Column<bool>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_tblData_Registration", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "tblMeta_Question",
+                name: "tblData_Question",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -35,7 +18,7 @@ namespace Registration.Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_tblMeta_Question", x => x.Id);
+                    table.PrimaryKey("PK_tblData_Question", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -51,9 +34,9 @@ namespace Registration.Infrastructure.Migrations
                 {
                     table.PrimaryKey("PK_tblMeta_Dropdown", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_tblMeta_Dropdown_tblMeta_Question_QuestionId",
+                        name: "FK_tblMeta_Dropdown_tblData_Question_QuestionId",
                         column: x => x.QuestionId,
-                        principalTable: "tblMeta_Question",
+                        principalTable: "tblData_Question",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -79,7 +62,7 @@ namespace Registration.Infrastructure.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "tblMeta_Question",
+                table: "tblData_Question",
                 columns: new[] { "Id", "Name", "Value" },
                 values: new object[,]
                 {
@@ -87,7 +70,7 @@ namespace Registration.Infrastructure.Migrations
                     { 2, "Rangos darbos atliks", null },
                     { 3, "Verslo klientas", null },
                     { 4, "Skaiciavimo budas", null },
-                    { 5, "Skaiciavimo budas", null }
+                    { 5, "Svarbus Klientas", null }
                 });
 
             migrationBuilder.InsertData(
@@ -134,16 +117,13 @@ namespace Registration.Infrastructure.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "tblData_Registration");
-
-            migrationBuilder.DropTable(
                 name: "tblMeta_RegistrationValue");
 
             migrationBuilder.DropTable(
                 name: "tblMeta_Dropdown");
 
             migrationBuilder.DropTable(
-                name: "tblMeta_Question");
+                name: "tblData_Question");
         }
     }
 }

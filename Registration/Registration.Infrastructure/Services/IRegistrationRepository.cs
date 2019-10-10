@@ -6,8 +6,9 @@ namespace Registration.Infrastructure.Repositories
 {
     public interface IRegistrationRepository
     {
-        IEnumerable<QuestionModel> GetQuestions();
-        void SubmitAnswers(IEnumerable<QuestionModel> answers);
+
+        IEnumerable<QuestionDto> GetQuestions();
+        void SubmitAnswers(IEnumerable<QuestionDto> answers);
         void SaveChanges();
        
     }

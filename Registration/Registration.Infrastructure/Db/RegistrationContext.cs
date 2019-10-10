@@ -8,11 +8,10 @@ namespace Registration.Infrastructure.Db
 {
     public class RegistrationContext : DbContext
     {
-        public DbSet<RegistrationEntity> Registrations { get; set; }
 
-        public DbSet<QuestionEntity> Questions { get; set; }
-        public DbSet<DropdownEntity> Dropdowns { get; set; }
-        public DbSet<DropdownFieldEntity> DropdownFields { get; set; }
+        public DbSet<Question> Questions { get; set; }
+        public DbSet<Dropdown> Dropdowns { get; set; }
+        public DbSet<DropdownField> DropdownFields { get; set; }
 
         public RegistrationContext(DbContextOptions options) : base(options)
         {
@@ -21,144 +20,116 @@ namespace Registration.Infrastructure.Db
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<QuestionEntity>().HasData(new QuestionEntity()
+            modelBuilder.Entity<Question>().HasData(new Question()
             {
                 Id = 1,
                 Name = "Reikia atlikti rangos darbus"
-            });
-
-            modelBuilder.Entity<DropdownEntity>().HasData(new DropdownEntity
-            {
-                Id = 1,
-                Name = "Reikia atlikti rangos darbus",
-                QuestionId = 1
-            });
-
-            modelBuilder.Entity<DropdownFieldEntity>().HasData(new List<DropdownFieldEntity>()
-            {
-                new DropdownFieldEntity()
-                {
-                Id = 1,
-                Name = "Taip",
-                DropdownId = 1
-                },
-                 new DropdownFieldEntity()
-                {
-                Id = 2,
-                Name = "Ne",
-                DropdownId = 1
-                }
-            });
-
-            modelBuilder.Entity<QuestionEntity>().HasData(new QuestionEntity()
+            },
+            new Question()
             {
                 Id = 2,
                 Name = "Rangos darbos atliks"
-            });
-
-            modelBuilder.Entity<DropdownEntity>().HasData(new DropdownEntity
-            {
-                Id = 2,
-                Name = "Rangos darbos atliks",
-                QuestionId = 2
-            });
-
-            modelBuilder.Entity<DropdownFieldEntity>().HasData(new List<DropdownFieldEntity>()
-            {
-                new DropdownFieldEntity()
-                {
-                Id = 3,
-                Name = "Metinis Rangovas",
-                DropdownId = 2
-                },
-                 new DropdownFieldEntity()
-                {
-                Id = 4,
-                Name = "Kiti",
-                DropdownId = 2
-                }
-            });
-
-            modelBuilder.Entity<QuestionEntity>().HasData(new QuestionEntity()
+            },
+            new Question()
             {
                 Id = 3,
                 Name = "Verslo klientas"
-            });
-
-            modelBuilder.Entity<DropdownEntity>().HasData(new DropdownEntity
-            {
-                Id = 3,
-                Name = "Verslo klientas",
-                QuestionId = 3
-            });
-
-            modelBuilder.Entity<DropdownFieldEntity>().HasData(new List<DropdownFieldEntity>()
-            {
-                new DropdownFieldEntity()
-                {
-                Id = 5,
-                Name = "Taip",
-                DropdownId = 3
-                },
-                 new DropdownFieldEntity()
-                {
-                Id = 6,
-                Name = "Ne",
-                DropdownId = 3
-                }
-            });
-            
-            modelBuilder.Entity<QuestionEntity>().HasData(new QuestionEntity()
+            },
+            new Question()
             {
                 Id = 4,
                 Name = "Skaiciavimo budas"
-            });
-
-            modelBuilder.Entity<DropdownEntity>().HasData(new DropdownEntity
-            {
-                Id = 4,
-                Name = "Skaiciavimo budas",
-                QuestionId = 4
-            });
-
-            modelBuilder.Entity<DropdownFieldEntity>().HasData(new List<DropdownFieldEntity>()
-            {
-                new DropdownFieldEntity()
-                {
-                Id = 7,
-                Name = "Automatinis",
-                DropdownId = 4
-                },
-                 new DropdownFieldEntity()
-                {
-                Id = 8,
-                Name = "Paprastas",
-                DropdownId = 4
-                }
-            });
-
-            modelBuilder.Entity<QuestionEntity>().HasData(new QuestionEntity()
+            },
+            new Question()
             {
                 Id = 5,
                 Name = "Svarbus Klientas"
             });
 
-            modelBuilder.Entity<DropdownEntity>().HasData(new DropdownEntity
+            modelBuilder.Entity<Dropdown>().HasData(new Dropdown
+            {
+                Id = 1,
+                Name = "Reikia atlikti rangos darbus",
+                QuestionId = 1
+            },new Dropdown
+            {
+                Id = 2,
+                Name = "Rangos darbos atliks",
+                QuestionId = 2
+            },new Dropdown
+            {
+                Id = 3,
+                Name = "Verslo klientas",
+                QuestionId = 3
+            },new Dropdown
+            {
+                Id = 4,
+                Name = "Skaiciavimo budas",
+                QuestionId = 4
+            }, new Dropdown
             {
                 Id = 5,
                 Name = "Svarbus Klientas",
                 QuestionId = 5
             });
 
-            modelBuilder.Entity<DropdownFieldEntity>().HasData(new List<DropdownFieldEntity>()
+            modelBuilder.Entity<DropdownField>().HasData(new List<DropdownField>()
             {
-                new DropdownFieldEntity()
+                new DropdownField()
+                {
+                Id = 1,
+                Name = "Taip",
+                DropdownId = 1
+                },
+                 new DropdownField()
+                {
+                Id = 2,
+                Name = "Ne",
+                DropdownId = 1
+                },
+                   new DropdownField()
+                {
+                Id = 3,
+                Name = "Metinis Rangovas",
+                DropdownId = 2
+                },
+                 new DropdownField()
+                {
+                Id = 4,
+                Name = "Kiti",
+                DropdownId = 2
+                },
+                 new DropdownField()
+                {
+                Id = 5,
+                Name = "Taip",
+                DropdownId = 3
+                },
+                 new DropdownField()
+                {
+                Id = 6,
+                Name = "Ne",
+                DropdownId = 3
+                },
+                    new DropdownField()
+                {
+                Id = 7,
+                Name = "Automatinis",
+                DropdownId = 4
+                },
+                 new DropdownField()
+                {
+                Id = 8,
+                Name = "Paprastas",
+                DropdownId = 4
+                },
+                 new DropdownField()
                 {
                 Id = 9,
                 Name = "Taip",
                 DropdownId = 5
                 },
-                 new DropdownFieldEntity()
+                 new DropdownField()
                 {
                 Id = 10,
                 Name = "Ne",
