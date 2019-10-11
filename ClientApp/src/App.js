@@ -1,6 +1,6 @@
 // Libraries
 import React, { Component } from "react";
-import "./App.scss";
+import "./styles/App.scss";
 import axios from "axios";
 
 // React-bootstrap
@@ -26,6 +26,7 @@ class App extends Component {
       disabled: !this.state.disabled
     });
   };
+
   handleAnswerChange = e => {
     let controlName = e.target.name;
     let value = e.target.value;
@@ -44,6 +45,7 @@ class App extends Component {
       };
     });
   };
+
   loadData = () => {
     axios
       .get("/api/registrations/")
@@ -54,16 +56,18 @@ class App extends Component {
       })
       .catch(error => {});
   };
+
   clearData = () => {
     this.loadData();
   };
-  onShowAlert = ()=>{
-    this.setState({showAlert:true},()=>{
-      window.setTimeout(()=>{
-        this.setState({showAlert:false})
-      },2000)
+  onShowAlert = () => {
+    this.setState({ showAlert: true }, () => {
+      window.setTimeout(() => {
+        this.setState({ showAlert: false });
+      }, 2000);
     });
   };
+
   submitAnswers = () => {
     axios({
       headers: {
@@ -77,17 +81,19 @@ class App extends Component {
       this.loadData();
     });
   };
+
   componentDidMount = () => {
     this.loadData();
   };
+
   render() {
     return (
       <div className="App">
         <Container>
           <h3>Registracijos Forma</h3>
           <Alert show={this.state.showAlert} variant="success">
-             Submit has been successfull
-            </Alert>
+            Submit has been successfull
+          </Alert>
           <div className="form">
             <Form>
               <QuestionForm
