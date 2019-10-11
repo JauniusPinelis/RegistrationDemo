@@ -8,7 +8,7 @@ export default class ButtonMenu extends Component {
     return (
       <div>
         <ButtonToolbar>
-          <Button onClick={this.props.updateDisabled} className="button" variant="primary">
+          <Button onClick={this.props.toggleDisabled} className="button" variant="primary">
             Koreguoti požymius
           </Button>
           <Button onClick={this.props.submitAnswers} disabled={this.props.disabled} className="button" variant="primary">

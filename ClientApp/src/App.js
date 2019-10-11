@@ -21,7 +21,8 @@ class App extends Component {
       showAlert: false
     };
   }
-  updateDisabled = () => {
+
+  toggleDisabled = () => {
     this.setState({
       disabled: !this.state.disabled
     });
@@ -103,7 +104,7 @@ class App extends Component {
               />
               <ButtonMenu
                 disabled={this.state.disabled}
-                updateDisabled={this.updateDisabled}
+                toggleDisabled={this.toggleDisabled}
                 submitAnswers={this.submitAnswers}
                 clearData={this.clearData}
               />
